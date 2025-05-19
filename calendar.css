@@ -1,0 +1,36 @@
+video {
+    width: 600px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
+}
+h2 {
+    color: #0094ff;
+    text-align: center;
+}
+td {
+    font-size: 28px;
+    text-align: center;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+.red {
+    color: red;
+}
+tr:nth-child(2) {
+    font-weight: bold;
+    text-decoration: underline;
+}
+td:first-child {
+    color: red;
+}
+td:last-child {
+    color: blue;
+}
+table {
+    margin: 20px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

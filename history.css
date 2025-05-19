@@ -1,0 +1,20 @@
+h1 {
+    text-align: center;
+}
+h2 {
+    color: white;
+    background-color: blue;
+}
+#history {
+    border: 1px solid blue;
+    width: 600px;
+}
+span.year {
+    color: red;
+}
+span.name {
+    color: blue;
+}
+tr:nth-child(2n) {
+    background-color: lightblue;
+}
