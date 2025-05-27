@@ -60,6 +60,14 @@ function drawClock() {
     let radS = ((Math.PI * 2) / 60) * s;
 
     ctx.save();
+    ctx.beginPath();
+    ctx.arc(300, 300, 250, 0, Math.PI * 2);
+    ctx.strokeStyle = "#999";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.restore();
+
+    ctx.save();
     ctx.translate(300, 300);
     ctx.rotate(radH);
     ctx.lineWidth = 6;
