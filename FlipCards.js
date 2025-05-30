@@ -38,8 +38,6 @@ function init() {
         table.appendChild(tr);
     }
 
-    startTime = new Date();
-    timer = setInterval(tick, 1000);
 }
 
 function tick() {
@@ -50,6 +48,12 @@ function tick() {
 
 function flip(e) {
     let src = e.target;
+
+    if (!startTime) {
+        startTime = new Date();
+        timer = setInterval(tick, 1000);
+    }
+
     if (flipTimer || src.textContent != "") {
         return;
     }

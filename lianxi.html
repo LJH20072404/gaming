@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lianxi.css">
+</head>
+<body>
+    <h2>商品</h2>
+    <div id="product">
+        <h3>林檎</h3>
+        <label>
+            値段：
+            <input type="number" id="price" value="100" min="1">
+        </label>
+        <label>
+            数量：
+            <input  type="number" id="quantity" value="1" min="1">
+        </label>
+        <p id="totalPrice">合計金額：0円</p>
+        <button onclick="addToCart()">かごに追加</button>
+    </div>
+    <script src="lianxi.js"></script>
+</body>
+</html>
