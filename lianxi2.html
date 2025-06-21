@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>請求書自動生成</title>
+</head>
+<body>
+    <h2>請求書入力フォーム</h2>
+
+
+    <label>ご購入日：<input type="date" id="date"></label><br>
+    <label>車番：<input type="text" id="carNo"></label><br>
+    <label>品名：<input type="text" id="item"></label><br>
+    <label>重量：<input type="number" id="weight"></label><br>
+    <label>金額：<input type="number" id="price"></label><br>
+
+    <label>
+        Excelテンプレートを選択：
+        <input type="file" id="templateFile" accept=".xlsx">
+    </label><br><br>
+
+    <button onclick="generateExcel()">請求書生成</button>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="lianxi2.js"></script>
+</body>
+</html>
