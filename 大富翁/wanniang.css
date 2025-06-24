@@ -1,0 +1,33 @@
+.calendar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+#calendar-table th,
+#calendar-table td {
+    border: 1px solid black;
+    width: 13vw;
+}
+#calendar-table td {
+    height: 10vh;
+    text-align: center;
+}
+.week6 {
+    display: table-row;
+}
+.week6.hidden {
+    display: none;
+}
+
+.day {
+    background-color: white;
+    color: black;
+}
+.sunday {
+    color: red;
+}
+.saturday {
+    color: blue;
+}
