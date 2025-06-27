@@ -31,3 +31,16 @@
 .saturday {
     color: blue;
 }
+
+.date {
+    font-weight: bold;
+    font-size: 16px;
+}
+.price {
+    font-size: 13px;
+    color: green;
+}
+.status {
+    font-size: 12px;
+    color: #666;
+}

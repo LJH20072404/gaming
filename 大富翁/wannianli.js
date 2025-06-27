@@ -41,7 +41,34 @@ function fillCalendar(year, month) {
     for (let d = 1; d <= days; d++) {
         const cellIndex = firstDay + d - 1;
         if (cellIndex < cells.length) {
-            cells[cellIndex].textContent = d;
+            const fullDate = `${year}-${String(month).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+            cells[cellIndex].innerHTML = `
+                <div class="date">${d}</div>
+                <div class="price">読み込み中...</div>
+                <div class="status">--</div>
+            `;
+            cells[cellIndex].className = "day";
+
+            fetch(`http://localhost:3000/price?date=${fullDate}`)
+                .then(res => res.json())
+                .then(data => {
+                    const priceText = `￥${data.price.toLocaleString()}`;
+                    const statusText = data.rooms > 0 ? "空きあり" : "満室";
+
+                    const priceDiv = cells[cellIndex].querySelector(".price");
+                    const statusDiv = cells[cellIndex].querySelector(".status");
+                    priceDiv.textContent = priceText;
+                    statusDiv.textContent = statusText;
+                })
+                .catch(() => {
+                    const priceDiv = cells[cellIndex].querySelector(".price");
+                    const statusDiv = cells[cellIndex].querySelector(".status");
+                    priceDiv.textContent = "取得失敗";
+                    statusDiv.textContent = "--";
+                });
+
+
+            
             cells[cellIndex].className = "day";
 
             const weekDay = (firstDay + d - 1) % 7;
@@ -68,4 +95,20 @@ function fillCalendar(year, month) {
     } else {
         week6.classList.add("hidden");
     }//这里是为了不显示有些月份用不到的第六行
+}
+
+function getPrice(year, month, day) {
+    const basePrice = 10000;
+    const date = new Date(year, month - 1, day);
+    const weekday = date.getDay();
+
+    let multiplier = 1.0;
+    if (weekday === 5 || weekday === 6) {
+        multiplier = 1.2;
+    }
+
+    return `￥${Math.round(basePrice * multiplier).toLocaleString()}`;
+}
+function getRoomStatus(year, month, day) {
+    return (day % 2 === 0) ? "満室" : "空きあり" ;
 }
